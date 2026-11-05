@@ -1,0 +1,63 @@
+{
+    "name":  "moviemate",
+    "version":  "1.0.0",
+    "description":  "Personlig filmtracker med TMDB",
+    "type":  "module",
+    "private":  true,
+    "license":  "MIT",
+    "scripts":  {
+                    "dev":  "vite dev",
+                    "build":  "vite build",
+                    "preview":  "vite preview",
+                    "release":  "npm run clean \u0026\u0026 npm run build \u0026\u0026 wrangler deploy",
+                    "clean":  "rm -rf ./node_modules/.vite",
+                    "generate":  "wrangler types",
+                    "lint":  "tsc --noEmit",
+                    "worker:run":  "rwsdk worker-run",
+                    "migrate:new":  "drizzle-kit generate",
+                    "migrate:dev":  "wrangler d1 migrations apply DB --local",
+                    "migrate:prod":  "wrangler d1 migrations apply DB --remote",
+                    "seed":  "rwsdk worker-run ./src/db/seed.ts",
+                    "test":  "vitest run",
+                    "test:watch":  "vitest",
+                    "test:coverage":  "vitest run --coverage"
+                },
+    "dependencies":  {
+                         "better-auth":  "1.7.3",
+                         "dotenv":  "17.4.2",
+                         "drizzle-orm":  "1.0.0-rc.4",
+                         "nanoid":  "5.1.16",
+                         "ohash":  "2.0.12",
+                         "react":  "19.2.8",
+                         "react-dom":  "19.2.8",
+                         "react-server-dom-webpack":  "19.2.8",
+                         "rwsdk":  "1.7.3",
+                         "ufo":  "1.6.4",
+                         "zod":  "4.5.4"
+                     },
+    "devDependencies":  {
+                            "@cloudflare/vite-plugin":  "1.54.4",
+                            "@cloudflare/workers-types":  "5.20260907.1",
+                            "@rolldown/plugin-babel":  "0.2.4",
+                            "@types/better-sqlite3":  "9.6.0",
+                            "@types/node":  "26.4.1",
+                            "@types/react":  "19.2.18",
+                            "@types/react-dom":  "19.2.7",
+                            "@vitejs/plugin-react":  "6.1.1",
+                            "@vitest/coverage-v8":  "4.1.11",
+                            "babel-plugin-react-compiler":  "1.0.0",
+                            "better-sqlite3":  "12.11.1",
+                            "drizzle-kit":  "1.0.0-rc.4",
+                            "tsx":  "4.23.13",
+                            "typescript":  "7.0.2",
+                            "vite":  "8.2.2",
+                            "vitest":  "4.1.11",
+                            "wrangler":  "4.129.0"
+                        },
+    "allowScripts":  {
+                         "better-sqlite3":  true,
+                         "esbuild":  true,
+                         "workerd":  true,
+                         "fsevents":  true
+                     }
+}
