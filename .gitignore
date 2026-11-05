@@ -7,6 +7,8 @@ coverage/
 test-results/
 playwright-report/
 *.log
+.web-reference/
+levering/
 
 # Credentials stay local in both projects
 .dev.vars

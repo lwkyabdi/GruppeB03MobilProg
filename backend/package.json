@@ -19,6 +19,7 @@
                     "migrate:prod":  "wrangler d1 migrations apply DB --remote",
                     "seed":  "rwsdk worker-run ./src/db/seed.ts",
                     "test":  "vitest run",
+                    "test:api": "node scripts/smoke.mjs",
                     "test:watch":  "vitest",
                     "test:coverage":  "vitest run --coverage"
                 },

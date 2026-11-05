@@ -1,45 +1,53 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Image, Pressable, Text, View } from 'react-native';
+import type { Movie } from '@/utils/schemas';
+import { palette, ui } from '@/components/ui';
 
-type MovieCardProps = {
-  title: string;
-  rating?: number;
-};
-
-export function MovieCard({ title, rating }: MovieCardProps) {
+export function MovieCard({
+  movie,
+  onPress,
+}: {
+  movie: Movie;
+  onPress: () => void;
+}) {
+  const [failed, setFailed] = useState(false);
   return (
-    <View style={styles.card}>
-      <View style={styles.poster}>
-        <Text style={styles.posterText}>Ingen plakat</Text>
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={`Vis ${movie.title}`}
+      onPress={onPress}
+      style={[ui.panel, { padding: 0, overflow: 'hidden', flex: 1 }]}
+    >
+      {movie.poster_path && !failed ? (
+        <Image
+          source={{
+            uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+          }}
+          accessibilityLabel={`Filmplakat for ${movie.title}`}
+          style={{ width: '100%', aspectRatio: 2 / 3 }}
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <View
+          style={{
+            aspectRatio: 2 / 3,
+            backgroundColor: palette.line,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Text style={ui.muted}>Ingen plakat</Text>
+        </View>
+      )}
+      <View style={{ padding: 12, gap: 6 }}>
+        <Text style={[ui.text, { fontWeight: '600' }]}>{movie.title}</Text>
+        <Text style={ui.muted}>
+          {movie.release_date.slice(0, 4) || 'År ukjent'}
+        </Text>
+        <Text style={{ color: '#c4b3ff' }}>
+          ★ {movie.vote_average.toFixed(1)} / 10
+        </Text>
       </View>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.rating}>Rating: {rating ?? '–'}</Text>
-    </View>
+    </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#e2e8f0',
-    padding: 16,
-  },
-  poster: {
-    height: 192,
-    marginBottom: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#e2e8f0',
-  },
-  posterText: {
-    color: '#64748b',
-  },
-  title: {
-    fontWeight: '600',
-    fontSize: 16,
-  },
-  rating: {
-    fontSize: 14,
-    color: '#64748b',
-  },
-});
