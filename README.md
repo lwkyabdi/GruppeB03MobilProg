@@ -4,6 +4,8 @@ MovieMate er en mobilapp for å oppdage filmer og holde oversikt over filmer du 
 
 ## Start fra en ren klone
 
+Ny maskin eller ny bruker? Følg [steg-for-steg fra null](MovieMate/README.md#0-på-en-ny-maskin--hent-prosjektet-først). Der forklares kloning, de to terminalene, miljøfiler, manuell IP-adresse, Expo-innlogging og oppretting av MovieMate-konto.
+
 Du trenger Node.js 22.13 eller nyere, npm 11 eller nyere og en Expo-klient som støtter SDK 58. Android-emulator fungerer på Windows; iOS-simulator krever macOS. Behold versjonene og lockfilene. På Windows kan `npm.cmd` og `npx.cmd` brukes hvis PowerShell blokkerer `npm.ps1`.
 
 Terminal 1, fra repoets rot:
