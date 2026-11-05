@@ -1,0 +1,17 @@
+# Local dependencies, generated files and database state
+node_modules/
+.wrangler/
+.expo/
+dist/
+coverage/
+test-results/
+playwright-report/
+*.log
+
+# Credentials stay local in both projects
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.env
+.env.*
+!.env.example
