@@ -117,8 +117,4 @@ Jest med jest-expo og Testing Library tester validering, filmkort med manglende 
 
 Glemt passord, e-postverifisering, administrasjon, pushvarsler, offline-synkronisering og appbutikkpublisering inngår ikke. Delt backend i produksjon og testing på fysiske enheter må bekreftes i deres miljø.
 
-## Innlevering og KI
 
-Se [LEVERING.md](LEVERING.md) for kravkartlegging, prioritert sluttkontroll, rapportunderlag og zip-kommando. [KI-LOGG.md](KI-LOGG.md) beskriver KI-bidrag med konkrete filer; [KI-avtale.md](KI-avtale.md) er gruppens eksisterende avtale. Gruppen må selv kvalitetssikre og kunne forklare koden, fylle inn faktiske navn og bidrag i rapporten og bekrefte gjennomførte muntlige arbeidskrav. Git-historikk skal beholdes.
-
-Faglige oppslagskilder: [Expo SDK 58 SecureStore](https://docs.expo.dev/versions/v58.0.0/sdk/securestore/), [beskyttede ruter](https://docs.expo.dev/router/advanced/authentication/), [Jest med Expo](https://docs.expo.dev/develop/unit-testing/), [Better Auth bearer](https://better-auth.com/docs/plugins/bearer) og [trusted origins for native apper](https://better-auth.com/docs/integrations/expo#scheme-and-trusted-origins). Implementasjonen er i tillegg kontrollert mot de installerte pakkeversjonene.
