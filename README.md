@@ -48,6 +48,7 @@ følger ikke med når en annen person kloner repoet.
 
 ```powershell
 cd MovieMate
+npm install
 npm ci
 Copy-Item .env.example .env
 npx expo start
