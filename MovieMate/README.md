@@ -4,6 +4,26 @@ MovieMate lar deg søke etter filmer og lagre en personlig filmliste med status,
 
 Kommandoene under er for PowerShell. Dersom Windows blokkerer `npm` eller `npx`, skriv `npm.cmd` og `npx.cmd` i stedet. Du trenger Node.js 22.13 eller nyere og Expo Go med støtte for prosjektets SDK 58.
 
+## 0. På en ny maskin – hent prosjektet først
+
+Installer Node.js (22.13 eller nyere), Git og VS Code på PC-en, og Expo Go på telefonen. Du trenger en egen Expo-konto og en TMDB Read Access Token til backend. Expo-innloggingen er forklart i steg 4.
+
+Åpne PowerShell i mappen der du vil lagre prosjektet, og kjør én linje om gangen:
+
+```powershell
+git clone https://github.com/lwkyabdi/GruppeB03MobilProg.git
+cd GruppeB03MobilProg
+code .
+```
+
+Hvis `code .` ikke fungerer, åpner du mappen `GruppeB03MobilProg` via **File → Open Folder** i VS Code. Velg deretter **Terminal → New Terminal** og kjør:
+
+```powershell
+cd MovieMate
+```
+
+Du står nå i `MovieMate/` og kan følge steg 1. Miljøfilene `.env` og `.dev.vars` følger ikke med fra GitHub; du oppretter dem i stegene under. `npm ci` installerer pakkene fra lockfilen. Kommandoene med `if (!(Test-Path ...))` kopierer en eksempelfil bare hvis din lokale fil mangler.
+
 ## 1. Start backend – terminal 1
 
 Hvis terminalen står i **denne mappen (`MovieMate/`)**, gå til backend:
@@ -66,7 +86,7 @@ Finn **IPv4-adresse** under nettverket PC-en bruker, for eksempel Wi-Fi. Åpne *
 EXPO_PUBLIC_API_URL=http://192.168.1.225:5173
 ```
 
-`192.168.1.225` er bare et eksempel. Ikke legg til `/api` på slutten.
+`192.168.1.225` er bare et eksempel. **IP-adressen fylles ikke inn automatisk når du kopierer `.env.example`.** På en ny maskin må du selv finne adressen med `ipconfig` og skrive den inn i `.env`. Bruk adressen til PC-en som kjører backend. Ikke legg til `/api` på slutten.
 
 | Du kjører appen på | Adresse i `.env` |
 | --- | --- |
@@ -109,6 +129,8 @@ Installer eller oppdater **Expo Go** på telefonen, og logg inn med **samme Expo
 - **Android-emulator:** Start emulatoren og trykk `a` i Expo-terminalen.
 
 Når MovieMate åpnes, velg **«Ny her? Opprett konto»**, eller logg inn med en eksisterende MovieMate-konto. Expo-kontoen brukes til å åpne prosjektet; MovieMate-kontoen brukes til din personlige filmliste.
+
+En ny lokal backend har en ny, tom database. Opprett derfor en MovieMate-konto på nytt når du starter backend på en annen maskin. Kontoer og filmer fra den gamle PC-en følger bare med dersom dere bruker samme kjørende backend og database.
 
 ## Neste gang du vil starte
 
